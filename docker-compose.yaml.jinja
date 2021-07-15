@@ -3,5 +3,5 @@
     container_name: ${SERVICE_ID}
     restart: always
     volumes:
-      - ${PWD}/sftp/data:/home/{{ USER_ID|default('USER_ID', true) }}/data
-    command: ${USER_ID}:${USER_ID}:1001:1001:/data
+      - ${PWD}/data:/home/{{ USER_ID|default('USER_ID', true) }}/data
+    command: {{ USER_ID|default('USER_ID', true) }}:{{ USER_ID|default('USER_ID', true) }}:1001:1001:/data
