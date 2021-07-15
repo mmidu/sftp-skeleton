@@ -1,9 +1,8 @@
-  {{ SERVICE_ID|default('SERVICE_ID', true) }}:
-    image: {{ IMAGE|default('atmoz/sftp:alpine', true) }}
-    container_name: ${SERVICE_ID}
-    restart: always
-    volumes:
-      - ${PWD}/data:/home/{{ USER_ID|default('userid', true) }}/data
-    ports:
-      - "${EXTERNAL_PORT}:22"
-    command: {{ USER_ID|default('userid', true) }}:{{ USER_ID|default('userid', true) }}:1001:1001:/data
+image: {{ IMAGE|default('atmoz/sftp:alpine', true) }}
+container_name: ${SERVICE_ID}
+restart: always
+volumes:
+  - ${PWD}/data:/home/{{ USER_ID|default('userid', true) }}/data
+ports:
+  - "${EXTERNAL_PORT}:22"
+command: {{ USER_ID|default('userid', true) }}:{{ USER_ID|default('userid', true) }}:1001:1001:/data
