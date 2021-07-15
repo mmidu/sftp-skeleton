@@ -1,5 +1,5 @@
   {{ SERVICE_ID|default('SERVICE_ID', true) }}:
-    image: atmoz/sftp:alpine
+    image: {{ IMAGE|default('atmoz/sftp:alpine', true) }}
     container_name: ${SERVICE_ID}
     restart: always
     volumes:
