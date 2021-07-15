@@ -1,0 +1,5 @@
+parameters:
+    - IMAGE
+    - SERVICE_ID
+    - USER_ID
+    - PORT
