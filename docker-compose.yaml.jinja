@@ -1,0 +1,7 @@
+  {{ SERVICE_ID|default('SERVICE_ID', true) }}:
+    image: atmoz/sftp:alpine
+    container_name: ${SERVICE_ID}
+    restart: always
+    volumes:
+      - ${PWD}/sftp/data:/home/{{ USER_ID|default('USER_ID', true) }}/data
+    command: ${USER_ID}:${USER_ID}:1001:1001:/data
