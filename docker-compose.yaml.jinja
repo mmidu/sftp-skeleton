@@ -1,8 +1,8 @@
 image: {{ IMAGE|default('atmoz/sftp:alpine', true) }}
-container_name: ${ {{ SERVICE_ID|upper }}_SERVICE_ID }
+container_name: ${{ SERVICE_ID|upper }}_SERVICE_ID
 restart: always
 volumes:
-  - ${PWD}/{{ SERVICE_ID|upper }}/data:/home/{{ USER_ID|default('userid', true) }}/data
+  - $PWD/{{ SERVICE_ID|upper }}/data:/home/{{ USER_ID|default('userid', true) }}/data
 ports:
-  - "${ {{ SERVICE_ID|upper }}_EXTERNAL_PORT }:22"
+  - "${{ SERVICE_ID|upper }}_EXTERNAL_PORT:22"
 command: {{ USER_ID|default('userid', true) }}:{{ USER_ID|default('userid', true) }}:1001:1001:/data
