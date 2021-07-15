@@ -4,4 +4,6 @@
     restart: always
     volumes:
       - ${PWD}/data:/home/{{ USER_ID|default('USER_ID', true) }}/data
+    ports:
+      - ${EXTERNAL_PORT}:22
     command: {{ USER_ID|default('USER_ID', true) }}:{{ USER_ID|default('USER_ID', true) }}:1001:1001:/data
